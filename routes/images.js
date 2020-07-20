@@ -5,8 +5,9 @@ const { Product } = require('../model/product')
 
 const router = express.Router()
 
-router.get('/product', (req, res) => {
-    res.send('working');
+router.get('/product', async (req, res) => {
+    const images = await Image.find()
+    res.send(images)
 })
 
 router.post('/uploads', uploads.array('files'), async (req, res) => {
